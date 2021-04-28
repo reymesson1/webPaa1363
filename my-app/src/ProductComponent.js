@@ -119,7 +119,7 @@ class Product extends Component {
     render() {
         const menu = this.state.products.map((product) => {
             return (
-                <div key={product.id} className="col-md-4">
+                <div key={product.id} className="col-md-4" style={{'padding-left':'34px'}} >
                     <div className="row">
                         <div className="card" style={{'margin-top':'10%'}}>
                             <div className="row" style={{'height':'150px','width':'450px'}}>
