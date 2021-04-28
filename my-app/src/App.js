@@ -13,13 +13,14 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar dark color="primary">
+        <Navbar style={{'background-color':'#e6e6e6','height':'150px','color':'#000000'}}>
           <div className="container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+            <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8084/testiiiing.jpg"/></NavbarBrand>
           </div>
-          <Dropdown style={{'right':'8%'}} isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle caret>
-            Dropdown
+          <Dropdown style={{ 'right':'8%'}} isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle style={{'background-color':'#e6e6e6', 'border-color':'#e6e6e6'}} caret>
+          {/* <i style={{'position':'absolute','left':'-25%','top':'22%','font-size':'20px'}} className="fa fa-shopping-cart" aria-hidden="true"></i>Cart */}
+          &nbsp;&nbsp;&nbsp;<i className="fa fa-shopping-cart" style={{'color':'#000000'}} aria-hidden="true"></i>&nbsp; <span style={{'font-size':'20px','color':'#000000'}}>Cart</span>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Header</DropdownItem>
