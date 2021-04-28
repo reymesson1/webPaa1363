@@ -7,6 +7,12 @@ class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            orders:[{
+                  id : "0001",
+                  orderDetails:[],
+                  subtotal: "89.99",
+                  total: "99.99"
+            }],
             products: [
                 {
                   id: 0,
@@ -84,6 +90,32 @@ class Product extends Component {
         }
     }
 
+    addToCart(event){
+        event.preventDefault();
+
+        let nextState = this.state.orders;
+
+        // let today = moment(new Date()).format('YYYY-MM-DD');
+
+        let parseId = JSON.parse(event.target.value);
+
+        let newItem = {
+
+            "id": parseId.id,
+            "date": "04-28-2021",
+            "description": parseId.description
+        }
+
+        nextState[0].orderDetails.push(newItem);
+
+        this.setState({
+            orders: nextState
+        });
+
+        console.log(this.state.orders);
+    
+    }
+
     render() {
         const menu = this.state.products.map((product) => {
             return (
@@ -113,6 +145,8 @@ class Product extends Component {
                                     <div className="row">
                                         <AddToCart
                                             id={product.id}
+                                            description={product.description}
+                                            addToCart={this.addToCart.bind(this)}
                                         />
                                         {/* <button className="btn btn-primary" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                     */}
                                     </div>

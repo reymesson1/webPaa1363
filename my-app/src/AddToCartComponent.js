@@ -8,18 +8,10 @@ export class AddToCart extends Component {
     
     }
 
-    addToCart(event){
-        event.preventDefault();
-
-        console.log(event.target.value);
-
-    }
-
-
     render() {
         return (
             <div> 
-                <button className="btn btn-primary" onClick={this.addToCart.bind(this)} name="like" value={'{"id":'+this.props.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                                    
+                <button className="btn btn-primary" onClick={this.props.addToCart.bind(this)} name="like" value={'{"id":'+this.props.id +', "description":"'+ this.props.description + '", "user":"jperez"}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>
             </div>
         )
     }
