@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
+import { AddToCart } from './AddToCartComponent';
 
 class Product extends Component {
 
@@ -110,7 +111,10 @@ class Product extends Component {
                                         <p>{'$'}{product.price}</p>
                                     </div>
                                     <div className="row">
-                                        <button className="btn btn-primary" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                    
+                                        <AddToCart
+                                            id={product.id}
+                                        />
+                                        {/* <button className="btn btn-primary" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                     */}
                                     </div>
                                 </div>
                             </div>
