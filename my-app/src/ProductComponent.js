@@ -33,6 +33,33 @@ class Product extends Component {
                   label:'Hot',
                   price:'4.99',
                   description:'Vidalia onion'                        
+                },                
+                {
+                  id: 3,
+                  description:'Uthappizza',
+                  image: 'assets/images/uthappizza.png',
+                  category: 'mains',
+                  label:'Hot',
+                  price:'4.99',
+                  description:'Vidalia onion'                        
+                },                
+                {
+                  id: 4,
+                  description:'Uthappizza',
+                  image: 'assets/images/uthappizza.png',
+                  category: 'mains',
+                  label:'Hot',
+                  price:'4.99',
+                  description:'Vidalia onion'                        
+                },                
+                {
+                  id: 5,
+                  description:'Uthappizza',
+                  image: 'assets/images/uthappizza.png',
+                  category: 'mains',
+                  label:'Hot',
+                  price:'4.99',
+                  description:'Vidalia onion'                        
                 }                
             ]
         }
@@ -42,6 +69,7 @@ class Product extends Component {
         const menu = this.state.products.map((product) => {
             return (
                 <div key={product.id}>
+
                     <div className="col-md-4">
                         <div className="card">
                             <div className="row" style={{'height':'150px','width':'450px'}}>
