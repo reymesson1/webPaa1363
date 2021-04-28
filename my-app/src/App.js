@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import Product from './ProductComponent';
 
 function App() {
 
@@ -35,6 +35,8 @@ function App() {
         </Dropdown>
 
         </Navbar>
+        <br/>
+        <Product/>
     </div>
   );
 }
