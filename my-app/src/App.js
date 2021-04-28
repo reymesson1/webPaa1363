@@ -35,7 +35,6 @@ function App() {
         </Dropdown>
 
         </Navbar>
-        <br/>
         <Product/>
     </div>
   );

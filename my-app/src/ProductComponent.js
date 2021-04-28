@@ -60,6 +60,24 @@ class Product extends Component {
                   label:'Hot',
                   price:'4.99',
                   description:'Vidalia onion'                        
+                },                
+                {
+                  id: 6,
+                  description:'Uthappizza',
+                  image: 'assets/images/uthappizza.png',
+                  category: 'mains',
+                  label:'Hot',
+                  price:'4.99',
+                  description:'Vidalia onion'                        
+                },                
+                {
+                  id: 7,
+                  description:'Uthappizza',
+                  image: 'assets/images/uthappizza.png',
+                  category: 'mains',
+                  label:'Hot',
+                  price:'4.99',
+                  description:'Vidalia onion'                        
                 }                
             ]
         }
@@ -68,13 +86,12 @@ class Product extends Component {
     render() {
         const menu = this.state.products.map((product) => {
             return (
-                <div key={product.id}>
-
-                    <div className="col-md-4">
-                        <div className="card">
+                <div key={product.id} className="col-md-4">
+                    <div className="row">
+                        <div className="card" style={{'margin-top':'10%'}}>
                             <div className="row" style={{'height':'150px','width':'450px'}}>
                                 <div className="col-md-6">
-                                    <img src={"http://localhost:8084/executed/gray.jpg"}  alt="Avatar" style={{"width":"100%","height":"100%","padding-left":"10px","padding-right":"10px"}}/>
+                                    <img src={"http://localhost:8084/executed/gray.jpg"}  alt="Avatar" style={{"width":"94%","height":"93%","padding-left":"10px","padding-right":"10px"}}/>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="row">
@@ -93,7 +110,6 @@ class Product extends Component {
                                         <p>{'$'}{product.price}</p>
                                     </div>
                                     <div className="row">
-                                        {/* <button className="btn btn-warning" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                     */}
                                         <button className="btn btn-primary" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                    
                                     </div>
                                 </div>
