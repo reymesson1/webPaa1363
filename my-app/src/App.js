@@ -124,6 +124,8 @@ class App extends Component {
 
       event.preventDefault();
 
+      console.log(this.state.orders);
+
       console.log('checkout');
 
     }

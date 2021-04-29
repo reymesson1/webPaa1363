@@ -10,6 +10,8 @@ function NavbarComponent(props) {
     
     const toggle = () => setDropdownOpen(prevState => !prevState);  
 
+    console.log(props.orders);
+
         return(
             <div>
                 <Navbar style={{'background-color':'#e6e6e6','height':'150px','color':'#000000'}}>
@@ -27,11 +29,27 @@ function NavbarComponent(props) {
                         <div className="row">
                             <Table>
                             <tbody>
-                                <tr>
-                                <td>
-                                    <span>test</span>
-                                </td>
-                                </tr>
+                                {props.orders[0].orderDetails.map(
+                                    (order) => <tr>
+                                                    <td>
+                                                        <div className="row">
+                                                            <div className="col-md-4">
+                                                                <span>{order.description}</span>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <span>{'   '}</span>
+                                                            </div>
+                                                            <div className="col-md-4">
+                                                                <button className="btn btn-danger">
+                                                                    
+                                                                    <i className="fa fa-trash-alt" style={{'font-size':'15px'}} aria-hidden="true"></i>
+
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                               </tr>
+                                )}
                                 <tr>
                                 <td>
                                     <div className="row">
