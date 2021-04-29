@@ -117,7 +117,7 @@ class App extends Component {
           orders: nextState
       });
 
-      console.log(this.state.orders);
+      // console.log(this.state.orders);
 
     }
 
@@ -125,7 +125,22 @@ class App extends Component {
 
       event.preventDefault();
 
+      let nextState = this.state.orders;
+
+      // let parseId = JSON.parse(event.target.value);
+
       console.log(event.target.value);
+
+      console.log(this.state.orders);
+
+      // console.log(parseId)
+
+      nextState[0].orderDetails.splice(0,1);
+
+      // this.setState({
+      //     orders: nextState
+      // });
+
 
     }
 

@@ -39,7 +39,7 @@ function NavbarComponent(props) {
                         <Table>
                         <tbody>
                             {props.orders[0].orderDetails.map(
-                                (order) => <tr>
+                                (order,index) => <tr>
                                                 <td>
                                                     <div className="row">
                                                         <div className="col-md-7">
@@ -49,7 +49,7 @@ function NavbarComponent(props) {
                                                             <span>{order.price}</span>
                                                         </div>
                                                         <div className="col-md-2">
-                                                            <button onClick={props.deleteItem.bind(this)} value={'{"id":'+'001' +', "description":"'+ 'test' + '", '+ ' "price":' + 'price'  + ' , "user":"jperez"}'} className="btn btn-danger">                                                                    
+                                                            <button onClick={props.deleteItem.bind(this)} value={'{"id":'+ order.id +','+' , "user":"jperez"}'} className="btn btn-danger">                                                                    
                                                                 <i className="fa fa-trash-alt" style={{'font-size':'15px'}} aria-hidden="true"></i>
                                                             </button>
                                                         </div>
