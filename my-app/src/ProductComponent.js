@@ -38,6 +38,7 @@ class Product extends Component {
                                         <AddToCart
                                             id={product.id}
                                             description={product.description}
+                                            price={product.price}
                                             addToCart={this.props.addToCart.bind(this)}
                                         />
                                         {/* <button className="btn btn-primary" name="like" value={'{"id":'+product.id+',"press":""}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>                                     */}

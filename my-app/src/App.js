@@ -107,7 +107,8 @@ class App extends Component {
 
           "id": parseId.id,
           "date": "04-28-2021",
-          "description": parseId.description
+          "description": parseId.description,
+          "price": parseId.price
       }
 
       nextState[0].orderDetails.push(newItem);

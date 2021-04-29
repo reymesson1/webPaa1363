@@ -10,49 +10,56 @@ function NavbarComponent(props) {
     
     const toggle = () => setDropdownOpen(prevState => !prevState);  
 
-    console.log(props.orders);
 
-        return(
-            <div>
-                <Navbar style={{'background-color':'#e6e6e6','height':'150px','color':'#000000'}}>
-                    <div className="container">
-                        <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8084/testiiiing.jpg"/></NavbarBrand>
-                    </div>
-                    <Dropdown style={{ 'right':'18%'}} isOpen={dropdownOpen} toggle={toggle}>
-                    <DropdownToggle style={{'background-color':'#e6e6e6', 'border-color':'#e6e6e6'}} caret>
-                    {/* <i style={{'position':'absolute','left':'-25%','top':'22%','font-size':'20px'}} className="fa fa-shopping-cart" aria-hidden="true"></i>Cart */}
-                    &nbsp;&nbsp;&nbsp;<i className="fa fa-shopping-cart" style={{'color':'#000000'}} aria-hidden="true"></i>&nbsp; <span style={{'font-size':'20px','color':'#000000'}}>Cart</span>
-                    </DropdownToggle>
-                    <DropdownMenu style={{'width':'350px'}} >
-                        <DropdownItem header><h4>Cart</h4></DropdownItem>
-                        <DropdownItem>
-                        <div className="row">
-                            <Table>
-                            <tbody>
-                                {props.orders[0].orderDetails.map(
-                                    (order) => <tr>
-                                                    <td>
-                                                        <div className="row">
-                                                            <div className="col-md-4">
-                                                                <span>{order.description}</span>
-                                                            </div>
-                                                            <div className="col-md-4">
-                                                                <span>{'   '}</span>
-                                                            </div>
-                                                            <div className="col-md-4">
-                                                                <button className="btn btn-danger">
-                                                                    
-                                                                    <i className="fa fa-trash-alt" style={{'font-size':'15px'}} aria-hidden="true"></i>
+    let subTotal = 0;
+    let total = 0;
 
-                                                                </button>
-                                                            </div>
+    props.orders[0].orderDetails.map(
+        (product) => {
+            total += product.price
+        }            
+    )
+
+    subTotal = (total)-(total*5/100).toFixed(2);
+
+    return(
+        <div>
+            <Navbar style={{'background-color':'#e6e6e6','height':'150px','color':'#000000'}}>
+                <div className="container">
+                    <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8084/testiiiing.jpg"/></NavbarBrand>
+                </div>
+                <Dropdown style={{ 'right':'18%'}} isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle style={{'background-color':'#e6e6e6', 'border-color':'#e6e6e6'}} caret>
+                &nbsp;&nbsp;&nbsp;<i className="fa fa-shopping-cart" style={{'color':'#000000'}} aria-hidden="true"></i>&nbsp; <span style={{'font-size':'20px','color':'#000000'}}>Cart</span>
+                </DropdownToggle>
+                <DropdownMenu style={{'width':'350px'}} >
+                    <DropdownItem header><h4>Cart</h4></DropdownItem>
+                    <DropdownItem>
+                    <div className="row">
+                        <Table>
+                        <tbody>
+                            {props.orders[0].orderDetails.map(
+                                (order) => <tr>
+                                                <td>
+                                                    <div className="row">
+                                                        <div className="col-md-4">
+                                                            <span>{order.description}</span>
                                                         </div>
-                                                    </td>
-                                               </tr>
-                                )}
-                                <tr>
-                                <td>
-                                    <div className="row">
+                                                        <div className="col-md-4">
+                                                            <span>{'   '}</span>
+                                                        </div>
+                                                        <div className="col-md-4">
+                                                            <button className="btn btn-danger">                                                                    
+                                                                <i className="fa fa-trash-alt" style={{'font-size':'15px'}} aria-hidden="true"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                            )}
+                            <tr>
+                            <td>
+                                <div className="row">
                                     <div className="col-md-4">
                                         <p className="col-md-offset-10">&nbsp;</p>
                                     </div>
@@ -60,38 +67,53 @@ function NavbarComponent(props) {
                                         <p className="col-md-offset-10">Subtotal:</p>
                                     </div>
                                     <div className="col-md-4">
+                                        <p className="col-md-offset-10">
+                                            {subTotal.toFixed(2)}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-4">
                                         <p className="col-md-offset-10">&nbsp;</p>
                                     </div>
+                                    <div className="col-md-4">
+                                        <p className="col-md-offset-10">Tax (18%):</p>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-md-4">
-                                        <h5>&nbsp;</h5>
-                                        </div>
-                                        <div className="col-md-4">
-                                        <h5>Total:</h5>
-                                        </div>
-                                        <div className="col-md-4">
-                                        <h5>&nbsp;</h5>
-                                        </div>
+                                    <div className="col-md-4">
+                                        <p className="col-md-offset-10">
+                                            {(total-subTotal).toFixed(2)}
+                                        </p>
                                     </div>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>                                            
-                                    {/* <button className="btn btn-dark" onClick={this.props.doCheckout.bind(this)} style={{'width':'100%'}} >Checkout</button> */}
-                                    <button className="btn btn-dark" onClick={props.doCheckout.bind(this)} style={{'width':'100%'}}  >Checkout</button>
-                                </td>
-                                </tr>
-                            </tbody>
-                            </Table>
-                        </div>
-                        </DropdownItem>
-                    </DropdownMenu>
-                    </Dropdown>
-                </Navbar>
-            </div>
-        );
-    }
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-4">
+                                    <h5>&nbsp;</h5>
+                                    </div>
+                                    <div className="col-md-4">
+                                    <h5>Total:</h5>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <h5>{total.toFixed(2)}</h5>
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>                                            
+                                {/* <button className="btn btn-dark" onClick={this.props.doCheckout.bind(this)} style={{'width':'100%'}} >Checkout</button> */}
+                                <button className="btn btn-dark" onClick={props.doCheckout.bind(this)} style={{'width':'100%'}}  >Checkout</button>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </Table>
+                    </div>
+                    </DropdownItem>
+                </DropdownMenu>
+                </Dropdown>
+            </Navbar>
+        </div>
+    );
+}
 
 
 

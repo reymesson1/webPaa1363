@@ -11,7 +11,7 @@ export class AddToCart extends Component {
     render() {
         return (
             <div> 
-                <button className="btn btn-primary" onClick={this.props.addToCart.bind(this)} name="like" value={'{"id":'+this.props.id +', "description":"'+ this.props.description + '", "user":"jperez"}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>
+                <button className="btn btn-primary" onClick={this.props.addToCart.bind(this)} name="like" value={'{"id":'+this.props.id +', "description":"'+ this.props.description + '", '+ ' "price":' + this.props.price  + ' , "user":"jperez"}'} ><i className="fa fa-shopping-cart" aria-hidden="true"></i> {'Add To Cart'}</button>
             </div>
         )
     }
