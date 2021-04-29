@@ -13,6 +13,7 @@ import { Button,
 import Product from './ProductComponent';
 import NavbarComponent from './NavbarComponent';
 
+let API_URL = "http://localhost:8085"
 class App extends Component {
 
   constructor(props) {
@@ -26,83 +27,27 @@ class App extends Component {
                 subtotal: "0.00",
                 total: "0.00"
           }],
-          products: [
-            {
-              id: 0,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'A unique combination'                        
-            },                
-            {
-              id: 1,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Italian pizza'                                                        
-            },                
-            {
-              id: 2,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            },                
-            {
-              id: 3,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            },                
-            {
-              id: 4,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            },                
-            {
-              id: 5,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            },                
-            {
-              id: 6,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            },                
-            {
-              id: 7,
-              description:'Uthappizza',
-              image: 'assets/images/uthappizza.png',
-              category: 'mains',
-              label:'Hot',
-              price:'4.99',
-              description:'Vidalia onion'                        
-            }                
-          ]
+          products: []
         }
 
         this.toggleModal = this.toggleModal.bind(this);
+
+    }
+
+    componentDidMount(){
+
+        fetch(API_URL+'/master')
+        .then((response)=>response.json())
+        .then((responseData)=>{
+            console.log(responseData);
+            this.setState({
+
+                products: responseData
+            })
+        })
+        .catch((error)=>{
+            console.log('Error fetching and parsing data', error);
+        })
 
     }
 
