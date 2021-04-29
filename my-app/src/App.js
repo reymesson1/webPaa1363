@@ -121,6 +121,14 @@ class App extends Component {
 
     }
 
+    deleteItem(event){
+
+      event.preventDefault();
+
+      console.log(event.target.value);
+
+    }
+
     doCheckout(event){
 
       event.preventDefault();
@@ -137,6 +145,7 @@ class App extends Component {
         <div className="App">
           <NavbarComponent
             doCheckout={this.doCheckout.bind(this)}
+            deleteItem={this.deleteItem.bind(this)}
             orders={this.state.orders}
           />  
           <Product
