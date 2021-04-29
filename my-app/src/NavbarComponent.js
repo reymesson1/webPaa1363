@@ -29,7 +29,7 @@ function NavbarComponent(props) {
                     <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8084/testiiiing.jpg"/></NavbarBrand>
                 </div>
                 <div className="col-md-6">
-                    <Input type="text" placeholder="Seach" />
+                    <Input type="text" onChange={props.search.bind(this)} placeholder="Seach" />
                 </div>
                 <div className="col-md-3">
                     <Dropdown style={{ 'right':'18%'}} isOpen={dropdownOpen} toggle={toggle}>

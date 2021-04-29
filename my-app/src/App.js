@@ -11,6 +11,7 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
+          filterText: "",
           orders:[{
                 id : "0001",
                 orderDetails:[],
@@ -144,6 +145,14 @@ class App extends Component {
 
     }
 
+    search(event){
+
+      this.setState({
+        filterText: event.target.value
+      })
+
+    }
+
     doCheckout(event){
 
       event.preventDefault();
@@ -161,9 +170,12 @@ class App extends Component {
           <NavbarComponent
             doCheckout={this.doCheckout.bind(this)}
             deleteItem={this.deleteItem.bind(this)}
+            search={this.search.bind(this)}
             orders={this.state.orders}
+            // orders={this.state.orders.filter( (order) => order.description.indexOf(this.state.filterText) !== -1 )}
           />  
           <Product
+            filterText={this.state.filterText}
             orders={this.state.orders}
             products={this.state.products}
             addToCart={this.addToCart.bind(this)}

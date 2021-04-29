@@ -9,7 +9,12 @@ class Product extends Component {
     }
 
     render() {
-        const menu = this.props.products.map((product) => {
+
+        let filterData = this.props.products.filter(
+
+            (product) => product.description.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1
+        )
+        const menu = filterData.map((product) => {
             return (
                 <div key={product.id} className="col-md-4" style={{'padding-left':'34px'}} >
                     <div className="row">
