@@ -42,13 +42,13 @@ function NavbarComponent(props) {
                                 (order) => <tr>
                                                 <td>
                                                     <div className="row">
-                                                        <div className="col-md-4">
+                                                        <div className="col-md-7">
                                                             <span>{order.description}</span>
                                                         </div>
-                                                        <div className="col-md-4">
-                                                            <span>{'   '}</span>
+                                                        <div className="col-md-3">
+                                                            <span>{order.price}</span>
                                                         </div>
-                                                        <div className="col-md-4">
+                                                        <div className="col-md-2">
                                                             <button className="btn btn-danger">                                                                    
                                                                 <i className="fa fa-trash-alt" style={{'font-size':'15px'}} aria-hidden="true"></i>
                                                             </button>
