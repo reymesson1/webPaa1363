@@ -4,7 +4,6 @@ import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table } from 'reactstrap';
 
-
 function NavbarComponent(props) {
     
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -60,8 +59,9 @@ function NavbarComponent(props) {
                                 </td>
                                 </tr>
                                 <tr>
-                                <td>
-                                    <button style={{'width':'100%'}} className="btn btn-dark">Checkout</button>
+                                <td>                                            
+                                    {/* <button className="btn btn-dark" onClick={this.props.doCheckout.bind(this)} style={{'width':'100%'}} >Checkout</button> */}
+                                    <button className="btn btn-dark" onClick={props.doCheckout.bind(this)} style={{'width':'100%'}}  >Checkout</button>
                                 </td>
                                 </tr>
                             </tbody>
