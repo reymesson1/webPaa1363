@@ -9,7 +9,6 @@ class Product extends Component {
     }
 
     render() {
-
         let filterData = this.props.products.filter(
 
             (product) => product.description.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1

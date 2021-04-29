@@ -3,6 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table } from 'reactstrap';
+import { Button,
+  Container,
+  Modal,
+  ModalTitle,
+  ModalHeader,
+  ModalBody,
+  ModalFooter } from 'reactstrap';
 import Product from './ProductComponent';
 import NavbarComponent from './NavbarComponent';
 
@@ -11,12 +18,13 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
+          showModal: false,
           filterText: "",
           orders:[{
                 id : "0001",
                 orderDetails:[],
-                subtotal: "89.99",
-                total: "99.99"
+                subtotal: "0.00",
+                total: "0.00"
           }],
           products: [
             {
@@ -93,6 +101,9 @@ class App extends Component {
             }                
           ]
         }
+
+        this.toggleModal = this.toggleModal.bind(this);
+
     }
 
     addToCart(event){
@@ -157,22 +168,48 @@ class App extends Component {
 
       event.preventDefault();
 
-      console.log(this.state.orders);
+      let nextState = this.state.orders;
 
-      console.log('checkout');
+      nextState[0].orderDetails = [];
+
+      this.toggleModal();
+
+      this.setState({
+          orders: nextState
+      });
+
 
     }
+
+    toggleModal() {
+      console.log("hello");
+      this.setState({
+        showModal: !this.state.showModal
+      })
+    }
+  
 
     render(){
       
       return (
         <div className="App">
+          <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
+            <ModalHeader>
+              <p>Transaction ID 00001</p>
+            </ModalHeader>
+            <ModalBody>
+              Your checkout has been successfully completed.
+            </ModalBody>
+            <ModalFooter>  
+              <button className="btn btn-white" onClick={this.toggleModal} >Close</button>
+            </ModalFooter>
+          </Modal>
+
           <NavbarComponent
             doCheckout={this.doCheckout.bind(this)}
             deleteItem={this.deleteItem.bind(this)}
             search={this.search.bind(this)}
             orders={this.state.orders}
-            // orders={this.state.orders.filter( (order) => order.description.indexOf(this.state.filterText) !== -1 )}
           />  
           <Product
             filterText={this.state.filterText}
@@ -180,6 +217,7 @@ class App extends Component {
             products={this.state.products}
             addToCart={this.addToCart.bind(this)}
           />
+
         </div>
       );
   }
