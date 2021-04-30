@@ -20,7 +20,7 @@ class Product extends Component {
                         <div className="card" style={{'margin-top':'10%'}}>
                             <div className="row" style={{'height':'150px','width':'450px'}}>
                                 <div className="col-md-6">
-                                    <img src={"http://localhost:8084/executed/gray.jpg"}  alt="Avatar" style={{"width":"94%","height":"93%","padding-left":"10px","padding-right":"10px"}}/>
+                                    <img src={"http://localhost:8085/executed/gray.jpg"}  alt="Avatar" style={{"width":"94%","height":"93%","padding-left":"10px","padding-right":"10px"}}/>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="row">

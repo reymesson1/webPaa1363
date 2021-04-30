@@ -26,7 +26,7 @@ function NavbarComponent(props) {
         <div>
             <Navbar style={{'background-color':'#e6e6e6','height':'150px','color':'#000000'}}>
                 <div className="col-md-3">
-                    <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8084/testiiiing.jpg"/></NavbarBrand>
+                    <NavbarBrand style={{'color':'#000000'}} href="/"><img style={{'width':'100px'}} src="http://localhost:8085/testiiiing.jpg"/></NavbarBrand>
                 </div>
                 <div className="col-md-6">
                     <Input type="text" onChange={props.search.bind(this)} placeholder="Seach" />
