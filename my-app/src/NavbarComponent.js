@@ -104,8 +104,7 @@ function NavbarComponent(props) {
                                 </tr>
                                 <tr>
                                 <td>                                            
-                                    {/* <button className="btn btn-dark" onClick={this.props.doCheckout.bind(this)} style={{'width':'100%'}} >Checkout</button> */}
-                                    <button className="btn btn-dark" onClick={props.doCheckout.bind(this)} style={{'width':'100%'}}  >Checkout</button>
+                                    <button className="btn btn-dark" onClick={props.doCheckout.bind(this)} style={{'width':'100%'}}  >Complete Order</button>
                                 </td>
                                 </tr>
                             </tbody>
