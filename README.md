@@ -1,6 +1,7 @@
 # webPaa1363
  
-This is the react shopping cart demo
+This is the react shopping cart demo,
+please follow the steps to run the app.
 
 Step #1:
 
