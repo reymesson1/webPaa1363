@@ -22,10 +22,10 @@ class App extends Component {
           showModal: false,
           filterText: "",
           orders:[{
-                id : "0001",
-                orderDetails:[],
-                subtotal: "0.00",
-                total: "0.00"
+            id : "0001",
+            orderDetails:[],
+            subtotal: "0.00",
+            total: "0.00"
           }],
           products: []
         }
@@ -36,13 +36,26 @@ class App extends Component {
 
     componentDidMount(){
 
-        fetch(API_URL+'/master')
+        fetch(API_URL+'/product')
         .then((response)=>response.json())
         .then((responseData)=>{
             console.log(responseData);
             this.setState({
 
                 products: responseData
+            })
+        })
+        .catch((error)=>{
+            console.log('Error fetching and parsing data', error);
+        })
+
+        fetch(API_URL+'/order')
+        .then((response)=>response.json())
+        .then((responseData)=>{
+            console.log(responseData);
+            this.setState({
+
+                orders: responseData
             })
         })
         .catch((error)=>{

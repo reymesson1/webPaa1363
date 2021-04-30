@@ -11,11 +11,21 @@ app.use(cors({
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
     'preflightContinue': false
   }));
-app.use(express.static('static'))
+app.use(express.static('static'));
+
 app.use(bodyParser.json());
+
 var masterController = require('./controller/masterController');
 
-app.get('/master', masterController.getMaster)
+var productController = require('./controller/productController');
+
+var orderController = require('./controller/orderController');
+
+app.get('/master', masterController.getMaster);
+
+app.get('/product', productController.getMaster);
+
+app.get('/order', orderController.getMaster);
 
 app.post('/master', masterController.setMaster);
 
