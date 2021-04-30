@@ -13,7 +13,7 @@ Step #2
 
 Step #3
 
- Go to folder my-app
+ Please open another console tab and go to folder my-app
 
  npm install
 
